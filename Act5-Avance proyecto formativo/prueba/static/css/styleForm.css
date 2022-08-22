@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+.row{
+	border-bottom: 2px solid #fff;
+}
+
+.rowMargen{
+	margin-bottom: 15px;
+}
+
+.container{
+	background: #EDEDE9;
+	font-family: 'Tapestry', cursive;
+}
+.h1{
+
+	font-family: 'Bungee', cursive;
+}
+
+ 

@@ -1,0 +1,393 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'images/logoGB1.png' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	<title>Data base</title>
+</head>
+
+<!-- Inicio header -->
+
+<header class="">
+    
+    <div class="container-fluid">
+        <!-- Inicio header -->
+
+        <div class="row">
+
+            <div class="col-sm-2 d-flex justify-content-center align-items-center">
+                
+                <!-- Implementacion del logo -->
+
+                    <div class="logo">
+
+                        <a href="{% url 'InterAdmin' %}">
+
+                            <img class="img-responsive" src="{% static 'images/logoGB.png' %}" alt="">
+
+                        </a>
+
+                    </div>
+
+                    <!-- Final de la implementacion del logo -->
+
+                </div>
+
+            <!-- Implementacion botones -->
+
+            <div class="col-sm-4 d-flex justify-content-center align-items-center">
+
+                <!-- Boton de cerrar sesion -->
+                <a href="{% url 'index' %}">
+                    <button class="home btnreadmore"><i id="idAcc" class="d fas fa-sign-out" ></i>Cerrar sesion</button>
+                </a>
+
+                <!-- /Boton de cerrar sesion -->
+
+            </div>
+
+
+            <div class="col-sm-4 d-flex ms-auto">
+                
+                <!-- Inicio offcanvas para los formularios de los modulos -->
+
+                <div class="a">
+
+                <button class="btnreadmore home" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="s fas fa-bars" id="idPro"></i>Procesos</button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color: #141414;">
+
+                        <div class="offcanvas-header titulos d-flex justify-content-end">
+
+                            <button type="button" class="btnAcc" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fas fa-times text-light"></i></button>
+
+                        </div>
+
+                        <div class="offcanvas-body tE text-light">
+
+                            <h5 id="offcanvasRightLabel" class="off"><i class="s fas fa-suitcase"></i></i>Administrador</h5>
+                            
+                            <div>
+                                
+                                <p>Este es el menú de procesos que usted puede realizar como adminitrador.</p>
+                                <p>Porfavor seleccione el proceso que desea realizar. <i class="l fas fa-arrow-down"></i></p>
+
+                            </div>
+
+                            <div class="accordion" id="accordionExample">
+
+                                <div class="accordion-item">
+
+                                    <div class="accordion-header" id="headingOne">
+                                    
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="s fa fa-briefcase"></i>Inventario</button>
+
+                                    </div>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="list-group list-group-flush">
+
+                                                <a href="{% url 'Iv2' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-circle-plus"></i>Registrar nuevo producto</a>
+
+                                                <a href="{% url 'list' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-lines"></i>Consultar productos</a>
+
+                                            </div>
+                                    </div>
+
+                                </div>
+
+                                <!--  -->
+
+                                <div class="accordion-item">
+
+                                    <div class="accordion-header" id="headingTwo">
+                                    
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="s fa fa-money"></i>Registro de Ventas</button>
+
+                                    </div>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="list-group list-group-flush">
+
+                                            <a href="{% url 'reg' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-circle-plus"></i>Registrar nueva venta</a>
+
+                                            <a href="{% url 'regtb' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-lines"></i>Consultar ventas</a>
+
+                                            <a href="{% url 'infped' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-credit-card-alt"></i>Acepar pedido</a>
+
+                                            </div>
+                                    </div>
+
+                                </div>
+
+                                <!--  -->
+
+                                <div class="accordion-item">
+
+                                    <div class="accordion-header" id="headingFour">
+                                    
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="s fa fa-pencil"></i>Gestion de Compras</button>
+
+                                    </div>
+
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+
+                                            <div class="list-group list-group-flush">
+
+                                                <a href="{% url 'ges' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-circle-plus"></i>Nueva compra</a>
+
+	  											<a href="{% url 'gestb' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-lines"></i>Consultar compras</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                            <div class="offcanvas-footer mb-4">
+
+                                <div class="list-group list-group-flush">
+                                
+                                    <a href="{% url 'user' %}" class="list-group-item list-group-item-action text-light" style="background-color: #141414;"><i class="s fa fa-users"></i>Buscar usuarios</a>
+
+                                    <a href="{% url 'editcat' %}" class="list-group-item list-group-item-action text-light" style="background-color: #141414;"><i class="s fa fa-book"></i>Añadir categoria de productos</a>
+
+                                </div>
+
+                            </div>
+
+                    </div>
+
+                    <!-- Final del offcanvas de los modulos -->
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /row -->
+
+    </div>  
+    <!-- /container -->
+
+</header>
+
+<!-- Final header -->
+    
+<!-- Botones -->
+<div style="background-color: #E8EBED;">
+    <div class="d-flex justify-content-end align-items-center py-3 px-3">
+
+            <div class="v">
+                        
+                <a href="{% url 'InterAdmin' %}">
+                            
+                    <button type="button" class="btn btn-primary"><i class="s fas fa-home"></i>Volver al inicio</button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<body>
+
+	<div class="px-4 py-4" style="background-color: #E8EBED;">
+	<div class="row">
+		<div class="col">
+			<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Localidad</th>
+                <th>Direccion</th>
+                <th>Correo electronico</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>51</td>
+                <td>Usaquen</td>
+                <td>Cl 73 No. 25-09</td>
+                <td>iosa@gamil.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>56</td>
+                <td>Suba</td>
+                <td>Tr 39 No. 57A-14</td>
+                <td>sajisjia@outlook.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>45</td>
+                <td>Chapinero</td>
+                <td>Cl 64F No. 77-24</td>
+                <td>aisoiao@gamil.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>67</td>
+                <td>Santa Fe</td>
+                <td>Cr 69H No. 72-69</td>
+                <td>opopop@hotmail.co</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Airi Satou</td>
+                <td>24</td>
+                <td>Usaquen</td>
+                <td>Cr 38 No. 9-52 L 258</td>
+                <td>iossasasaa@gamil.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Brielle Williamson</td>
+                <td>40</td>
+                <td>Antonio Nariño</td>
+                <td>Cl 144 No. 23-36 APTO 109</td>
+                <td>losakojao@outlook.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Herrod Chandler</td>
+                <td>30</td>
+                <td>Puente Aranda</td>
+                <td>Dg 88 No. 27-68 APT 2019</td>
+                <td>ospaspoajoa@gamil.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+               
+            </tr>
+            <tr>
+                <td>Rhona Davidson</td>
+                <td>28</td>
+                <td>Engativa</td>
+                <td>Cr 13 No. 83-24</td>
+                <td>21212121@hotmail.com</td>
+                <td>
+                    <a href="" data-title="Enviar Mensaje"><i class="fas fa-envelope text-primary"></i></a>
+                    <a href="{% url 'conf' %}" data-title="Eliminar"><i class="fas fa-ban text-primary"></i></a>
+                </td>
+                
+            </tr>
+        
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Localidad</th>
+                <th>Direccion</th>
+                <th>Correo electronico</th>
+                <th>Acciones</th>
+
+            </tr>
+        </tfoot>
+    </table>
+		</div>
+	</div>
+</div>
+</body>
+
+<footer class="text-white text-center text-lg-start" style="background-color: #0D21A1;">
+    
+    <div class="text-center p-3" style="background-color: #011638;">
+      Copyright © Todos los derechos son reservados por: 
+      <a class="text-white" href="https://mdbootstrap.com/">DistribuidoraGB.com</a>
+    </div>
+    
+  </footer>
+
+	<!-- Scripts -->
+
+    <!-- Script Bootstrap -->
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Script Font Awesome -->
+
+    <script src="https://kit.fontawesome.com/dbfa2f0f7e.js" crossorigin="anonymous"></script>
+
+    <!-- Script validation -->
+
+    <script>
+        
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+    </script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+    $('#example').DataTable();
+ });
+	</script>
+</body>
+</html>

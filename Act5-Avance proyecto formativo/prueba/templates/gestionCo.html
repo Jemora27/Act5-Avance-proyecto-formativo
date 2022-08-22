@@ -1,0 +1,660 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="icon" href="{% static 'images/logoGB1.png' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styless.css' %}">
+	<title>Gestion de Compras</title>
+</head>
+
+<!-- Inicio header -->
+
+<header class="">
+	
+	<div class="container-fluid">
+		<!-- Inicio header -->
+
+		<div class="row">
+
+			<div class="col-sm-2 d-flex justify-content-center align-items-center">
+				
+  				<!-- Implementacion del logo -->
+
+					<div class="logo">
+
+						<a href="{% url 'InterAdmin' %}">
+
+							<img class="img-responsive" src="{% static 'images/logoGB.png' %}" alt="">
+
+						</a>
+
+					</div>
+
+					<!-- Final de la implementacion del logo -->
+
+				</div>
+
+			<!-- Implementacion botones -->
+
+			<div class="col-sm-4 d-flex justify-content-center align-items-center">
+
+				<!-- Boton de cerrar sesion -->
+				<a href="{% url 'index' %}">
+					<button class="home btnreadmore"><i id="idAcc" class="d fas fa-sign-out" ></i>Cerrar sesion</button>
+				</a>
+
+				<!-- /Boton de cerrar sesion -->
+
+			</div>
+
+
+			<div class="col-sm-4 d-flex ms-auto">
+				
+				<!-- Inicio offcanvas para los formularios de los modulos -->
+
+				<div class="a">
+
+				<button class="btnreadmore home" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="s fas fa-bars" id="idPro"></i>Procesos</button>
+
+					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color: #141414;">
+
+  						<div class="offcanvas-header titulos d-flex justify-content-end">
+
+  							<button type="button" class="btnAcc" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fas fa-times text-light"></i></button>
+
+  						</div>
+
+  						<div class="offcanvas-body tE text-light">
+
+  							<h5 id="offcanvasRightLabel" class="off"><i class="s fas fa-suitcase"></i></i>Administrador</h5>
+  							
+  							<div>
+  								
+  								<p>Este es el menú de procesos que usted puede realizar como adminitrador.</p>
+  								<p>Porfavor seleccione el proceso que desea realizar. <i class="l fas fa-arrow-down"></i></p>
+
+  							</div>
+
+  							<div class="accordion" id="accordionExample">
+
+  								<div class="accordion-item">
+
+  									<div class="accordion-header" id="headingOne">
+	  								
+	  									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="s fa fa-briefcase"></i>Inventario</button>
+
+	  								</div>
+
+	  								<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      									<div class="list-group list-group-flush">
+
+	  											<a href="{% url 'Iv2' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-circle-plus"></i>Registrar nuevo producto</a>
+
+	  											<a href="{% url 'list' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-lines"></i>Consultar productos</a>
+
+	  										</div>
+	  								</div>
+
+	  							</div>
+
+	  							<!--  -->
+
+	  							<div class="accordion-item">
+
+  									<div class="accordion-header" id="headingTwo">
+	  								
+	  									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="s fa fa-money"></i>Registro de Ventas</button>
+
+	  								</div>
+
+	  								<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      									<div class="list-group list-group-flush">
+
+	  											<a href="{% url 'reg' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-circle-plus"></i>Registrar nueva venta</a>
+
+	  											<a href="{% url 'regtb' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-lines"></i>Consultar ventas</a>
+
+	  											<a href="{% url 'infped' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-credit-card-alt"></i>Acepar pedido</a>
+
+	  										</div>
+	  								</div>
+
+	  							</div>
+
+	  							<!--  -->
+
+	  							<div class="accordion-item">
+
+  									<div class="accordion-header" id="headingFour">
+	  								
+	  									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="s fa fa-pencil"></i>Gestion de Compras</button>
+
+	  								</div>
+
+	  								<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      									<div class="accordion-body">
+
+      										<div class="list-group list-group-flush">
+
+	  											<a href="{% url 'ges' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-circle-plus"></i>Nueva compra</a>
+
+	  											<a href="{% url 'gestb' %}" class="mods list-group-item list-group-item-action"><i class="s fa fa-file-lines"></i>Consultar compras</a>
+
+	  										</div>
+	  									</div>
+	  								</div>
+
+	  							</div>
+
+	  						</div>
+
+  						</div>
+
+  							<div class="offcanvas-footer mb-4">
+
+  								<div class="list-group list-group-flush">
+  								
+  									<a href="{% url 'user' %}" class="list-group-item list-group-item-action text-light" style="background-color: #141414;"><i class="s fa fa-users"></i>Buscar usuarios</a>
+
+  									<a href="{% url 'editcat' %}" class="list-group-item list-group-item-action text-light" style="background-color: #141414;"><i class="s fa fa-book"></i>Añadir categoria de productos</a>
+
+  								</div>
+
+  							</div>
+
+  					</div>
+
+  					<!-- Final del offcanvas de los modulos -->
+
+				</div>
+
+			</div>
+
+		</div>
+		<!-- /row -->
+
+	</div>  
+	<!-- /container -->
+
+</header>
+
+<!-- Final header -->
+	
+	<!-- Información hacer del formulario a llenar -->
+	<section class="text-light">
+		<div class="j container">
+
+			<div class="row">
+
+				<div class="col-sm-6 mb-4">
+
+					<h1>Registro de Compra</h1>
+					<p>Registro de compras a proveedores</p>
+					<b><p>*Obligatorio</p></b>
+
+				</div>
+
+				<div class="col-sm-3 mb-4 d-flex justify-content-end align-items-center">
+					
+					<a href="{% url 'InterAdmin' %}">
+						
+						<button type="button" class="btn btn-primary"><i class="s fas fa-home"></i>Volver al inicio</button>
+
+					</a>
+
+				</div>
+
+				<div class="col-sm-3 mb-4 d-flex justify-content-start align-items-center">
+					
+					<a href="{% url 'gestb' %}">
+						
+						<button type="button" class="btn btn-primary"><i class="s fa-solid fa-file-lines"></i></i>Consultar</button>
+
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+<body>
+
+	<!-- Recoleccion datos del Administrador -->
+	<form class="needs-validation" novalidate action="{% url 'gestb' %}">
+		
+		<div class="j container">
+			
+			<h3 class="text-light">Datos del administrador</h3>
+			
+				<div class="row">
+
+					<div class="col-sm-2 mb-4">
+
+						<label for="realizante" id="realizante" class="form-control bg-dark text-light">Nombres *</label>
+
+					</div>
+	
+					<div class="col-sm-5 mb-4">
+
+						<input type="text" id="realizante" name="realizante" placeholder="Primer Nombre" maxlength="20" required class="form-control" pattern="[a-zA-Z]+">
+						<div class="invalid-feedback">
+							Ingrese sus Nombres
+						</div>
+
+					</div>
+
+					<div class="col-sm-5 mb-4">
+
+						<input type="text" id="realizante" name="realizante" placeholder="Segundo Nombre" maxlength="20" class="form-control" pattern="[a-zA-Z]+">
+
+						</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-2 mb-4">
+
+						<label for="apellidosR" class="form-control bg-dark text-light">Apellidos *</label>
+
+					</div>
+
+					<div class="col-sm-5 mb-4">
+
+						<input type="text" id="apellidosR" name="apellidosR" placeholder="Primer Apellido" required maxlength="25" class="form-control" pattern="[a-zA-Z]+">
+						<div class="invalid-feedback">
+							Ingrese sus Apellidos
+						</div>
+
+					</div>
+
+					<div class="col-sm-5 mb-4">
+
+						<input type="text" id="apellidosR" name="apellidosR" placeholder="Segundo Apellido" required maxlength="25" class="form-control" pattern="[a-zA-Z]+">
+
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<label for="TID" class="form-control bg-dark text-light">Tipo de Identificación *</label>
+
+					</div>
+						
+					<div class="col-sm-6 mb-4">
+
+						<select name="TID" id="TID" class="form-select" required>
+
+							<option value=""> </option>
+							
+							<option value="001">Cedula de ciudadanía</option>
+							
+							<option value="002">Cedula de extrangería</option>
+						
+						</select>
+						<div class="invalid-feedback">
+							Seleccione un tipo de identificacion valido
+						</div>
+
+					</div>
+
+				</div>		
+
+				<div class="row">
+					
+					<div class="col-sm-6 mb-4">
+
+						<label for="ID" class="form-control bg-dark text-light">Número de Identificaión *</label>
+
+					</div>
+						
+					<div class="col-sm-6 mb-4">
+
+						<input type="number" name="ID" id="ID" min="1" required class="form-control" pattern="[0-9]{4-10}+">
+						<div class="invalid-feedback">
+							Ingrese su numero de identificacion
+						</div>
+
+					</div>
+
+				</div>
+
+		</div>
+
+
+		<!-- Recoleccion datos de compra -->
+		<div class="j container">
+
+			<h3 class="text-light">Datos de la compra: </h3>
+
+				<div class="row">
+						
+					<div class="col-sm-6 mb-4">
+
+						<label for="fecha" class="form-control bg-dark text-light">Fecha de Realización *</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<input type="date" name="fecha" id="fecha" min="2022-01-01" max="2022-12-31" required class="form-control">
+						<div class="invalid-feedback">
+							Seleccione una fecha valida
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div class="row">
+						
+					<div class="col-sm-2 mb-4">
+
+						<label for="producto" class="form-control bg-dark text-light">Producto 1 *</label>
+
+					</div>
+						
+					<div class="col-sm-4 mb-4">
+
+						<input type="text" name="producto" id="producto" placeholder="Ingrese el Primer Producto Comprado" maxlength="40" required size="40" class="form-control" pattern="[a-zA-Z0-9*]+">
+						<div class="invalid-feedback">
+							Ingrese el nombre del producto comprado
+						</div>
+
+					</div>	
+						
+					<div class="col-sm-4 mb-4">	
+
+						<input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" min="1" required class="form-control">
+						<div class="invalid-feedback">
+							Ingrese la cantidad comprada
+						</div>
+
+					</div>
+
+					<div class="col-sm-2 mb-4">
+						
+						<input type="text" name="costo" id="costo" minlength="3" required placeholder="Costo Total" class="form-control" pattern="[$.0-9]+">
+						<div class="invalid-feedback">
+							Ingrese el costo total del primer producto
+						</div>
+
+					</div>
+						
+				</div>
+
+
+
+				<div class="row">
+
+					<div class="col-sm-2 mb-4">	
+
+						<label for="producto2" class="form-control bg-dark text-light">Producto 2</label>
+
+					</div>
+
+					<div class="col-sm-4 mb-4">
+
+						<input type="text" name="producto2" id="producto2" placeholder="Ingrese el Segundo Producto Comprado" maxlength="40" size="40" class="form-control" pattern="[a-zA-Z0-9*]+">
+
+					</div>
+
+					<div class="col-sm-4 mb-4">
+
+						<input type="number" name="cantidad2" id="cantidad2" placeholder="Cantidad" min="1" class="form-control">
+
+					</div>
+
+					<div class="col-sm-2 mb-4">
+
+						<input type="text" name="costo2" id="costo2" minlength="3"placeholder="Costo Total" class="form-control" pattern="[$.0-9]+">
+
+					</div>
+
+				</div>
+
+						
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<label for="total" class="form-control bg-dark text-light">Costo Total *</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+						
+						<input type="text" name="total" id="total" placeholder="Ingrese el Valor Total de la Compra" minlength="3" size="26" required class="form-control" pattern="[$.0-9]+">
+
+					</div>
+						
+				</div>
+
+		</div>
+
+
+		<!-- Recoleccion datos proveedor -->
+		<div class="j container">
+
+			<h3 class="text-light">Datos proveedor</h3>
+						
+				<div class="row">
+
+					<div class="col-sm-3 mb-4">
+
+						<label for="nombreP" class="form-control bg-dark text-light">Nombre Proveedor *</label>
+
+					</div>
+						
+					<div class="col-sm-4 mb-4">
+
+						<input type="text" name="nombreP" id="nombreP" placeholder="Nombres" maxlength="40" required class="form-control" pattern="[a-zA-Z]+">
+						<div class="invalid-feedback">
+							Ingrese los nombres del proveedor
+						</div>
+
+					</div>
+
+					<div class="col-sm-5 mb-4">
+						
+						<input type="text" name="apellidosP" id="apellidosP" placeholder="Apellidos" maxlength="40" required class="form-control" pattern="[a-zA-Z]+">
+						<div class="invalid-feedback">
+							Ingrese los apellidos del proveedor
+						</div>
+						
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<label for="TIDP" class="form-control bg-dark text-light">Tipo de Identificación *</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<select name="TIDP" id="TIDP" class="form-select" required>
+							<option value=""> </option>
+							<option value="001">Cedula de ciudadanía</option>
+							<option value="002">Cedula de extrangería</option>
+						</select>
+						<div class="invalid-feedback">
+							Seleccione el tipo de identificacion del proveedor
+						</div>
+
+					</div>
+						
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<label for="IDP" class="form-control bg-dark text-light">Número de Identificaión *</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<input type="number" name="IDP" id="IDP" min="1" placeholder="Número de Identificaión de Proveedor" size="40" required class="form-control" pattern="[0-9]{4-10}+">
+						<div class="invalid-feedback">
+							Ingrese el numero de identificaion del proveedor
+						</div>
+
+					</div>
+						
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+						
+						<label for="TelPro" class="form-control bg-dark text-light">Telefono Proveedor *</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<input type="Tel" pattern="[0-9]{10}+" required class="form-control">
+						<div class="invalid-feedback">
+							Ingrese el numero telefonico del proveedor
+						</div>
+
+					</div>
+					
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<label for="email" class="form-control bg-dark text-light">Correo Electronico Proveedor *</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<input type="email" required class="form-control">
+						<div class="invalid-feedback">
+							Ingrese el correo electronico del proveedor
+						</div>
+
+					</div>
+						
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<label for="Comentarios" class="form-control bg-dark text-light">Comentarios</label>
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<p><textarea name="Comentarios" rows="1" cols="50" placeholder="Escriba aquí sus comentarios." class="form-control"></textarea></p>
+
+					</div>
+						
+				</div>
+
+		</div>
+
+
+		<!-- Botones -->
+		<div class="container">
+			
+			<hr class="hr">
+				
+				<div class="row">
+
+					<div class="col-sm-6 mb-4">
+
+						<input type="reset" name="reinicio" id="reinicio" value="Reiniciar Datos" class="form-control btn btn-danger">
+
+					</div>
+
+					<div class="col-sm-6 mb-4">
+
+						<input type="submit" name="btna" id="btna" value="Registrar Compra" class="form-control btn btn-primary">
+
+					</div>
+
+				</div>
+
+		</div>
+
+
+
+
+	</form>
+</body>
+
+<!-- Inicio Footer -->
+
+  <footer class="text-white text-center text-lg-start" style="background-color: #0D21A1;">
+    
+    <div class="text-center p-3" style="background-color: #011638;">
+      Copyright © Todos los derechos son reservados por: 
+      <a class="text-white" href="https://mdbootstrap.com/">DistribuidoraGB.com</a>
+    </div>
+    
+  </footer>
+
+<!-- FInal del footer -->
+
+
+
+<!-- Scripts -->
+
+	<!-- Script Bootstrap -->
+
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+	<!-- Script Font Awesome -->
+
+	<script src="https://kit.fontawesome.com/dbfa2f0f7e.js" crossorigin="anonymous"></script>
+
+	<!-- Script validation -->
+
+	<script>
+		
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+	</script>
+	
+</body>
+</html>
